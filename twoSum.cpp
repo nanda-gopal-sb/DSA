@@ -23,3 +23,7 @@ int *twoSum(int arr[], int target, int size)
     }
     return temp;
 }
+int main()
+{
+	cout<<"Lmao"<<"\n";
+}
