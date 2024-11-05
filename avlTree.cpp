@@ -5,16 +5,16 @@ using namespace std;
 
 // Template class representing a node in the AVL tree
 template <typename T>
-class AVLNode
+class node
 {
 public:
-    T key;          // The value of the node
-    AVLNode *left;  // Pointer to the left child
-    AVLNode *right; // Pointer to the right child
-    int height;     // Height of the node in the tree
+    T key;       // The value of the node
+    node *left;  // Pointer to the left child
+    node *right; // Pointer to the right child
+    int height;  // Height of the node in the tree
 
     // Constructor to initialize a node with a given key
-    AVLNode(T k)
+    node(T k)
         : key(k), left(nullptr), right(nullptr), height(1)
     {
     }
@@ -26,10 +26,10 @@ class AVLTree
 {
 private:
     // Pointer to the root of the tree
-    AVLNode<T> *root;
+    node<T> *root;
 
     // function to get the height of a node
-    int height(AVLNode<T> *node)
+    int height(node<T> *node)
     {
         if (node == nullptr)
             return 0;
@@ -37,7 +37,7 @@ private:
     }
 
     // function to get the balance factor of a node
-    int balanceFactor(AVLNode<T> *node)
+    int balanceFactor(node<T> *node)
     {
         if (node == nullptr)
             return 0;
@@ -45,10 +45,10 @@ private:
     }
 
     // function to perform a right rotation on a subtree
-    AVLNode<T> *rightRotate(AVLNode<T> *y)
+    node<T> *rightRotate(node<T> *y)
     {
-        AVLNode<T> *x = y->left;
-        AVLNode<T> *T2 = x->right;
+        node<T> *x = y->left;
+        node<T> *T2 = x->right;
 
         // Perform rotation
         x->right = y;
@@ -63,10 +63,10 @@ private:
     }
 
     // function to perform a left rotation on a subtree
-    AVLNode<T> *leftRotate(AVLNode<T> *x)
+    node<T> *leftRotate(node<T> *x)
     {
-        AVLNode<T> *y = x->right;
-        AVLNode<T> *T2 = y->left;
+        node<T> *y = x->right;
+        node<T> *T2 = y->left;
 
         y->left = x;
         x->right = T2;
@@ -81,11 +81,11 @@ private:
 
     // function to insert a new key into the subtree rooted
     // with node
-    AVLNode<T> *insert(AVLNode<T> *node, T key)
+    node<T> *insert(node<T> *node, T key)
     {
         // Perform the normal BST insertion
         if (node == nullptr)
-            return new AVLNode<T>(key);
+            return new node<T>(key);
 
         if (key < node->key)
             node->left = insert(node->left, key);
@@ -130,9 +130,9 @@ private:
     }
 
     // function to find the node with the minimum key value
-    AVLNode<T> *minValueNode(AVLNode<T> *node)
+    node<T> *minValueNode(node<T> *node)
     {
-        AVLNode<T> *current = node;
+        node<T> *current = node;
         while (current->left != nullptr)
             current = current->left;
         return current;
@@ -140,7 +140,7 @@ private:
 
     // function to delete a key from the subtree rooted with
     // root
-    AVLNode<T> *deleteNode(AVLNode<T> *root, T key)
+    node<T> *deleteNode(node<T> *root, T key)
     {
         // Perform standard BST delete
         if (root == nullptr)
@@ -155,7 +155,7 @@ private:
             // Node with only one child or no child
             if ((root->left == nullptr) || (root->right == nullptr))
             {
-                AVLNode<T> *temp = root->left ? root->left : root->right;
+                node<T> *temp = root->left ? root->left : root->right;
                 if (temp == nullptr)
                 {
                     temp = root;
@@ -168,7 +168,7 @@ private:
             else
             {
 
-                AVLNode<T> *temp = minValueNode(root->right);
+                node<T> *temp = minValueNode(root->right);
                 root->key = temp->key;
                 root->right = deleteNode(root->right, temp->key);
             }
@@ -213,7 +213,7 @@ private:
     }
 
     // function to perform inorder traversal of the tree
-    void inorder(AVLNode<T> *root)
+    void inorder(node<T> *root)
     {
         if (root != nullptr)
         {
@@ -225,7 +225,7 @@ private:
 
     // function to search for a key in the subtree rooted
     // with root
-    bool search(AVLNode<T> *root, T key)
+    bool search(node<T> *root, T key)
     {
         if (root == nullptr)
             return false;
