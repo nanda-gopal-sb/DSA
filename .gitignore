@@ -2,3 +2,4 @@
 *.exe
 *.out
 sample.cpp
+.clang-format
