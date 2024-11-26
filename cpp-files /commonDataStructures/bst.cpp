@@ -4,7 +4,11 @@ struct Node {
   int data;
   Node* left;
   Node* right;
-  Node(int value) : data(value), left(nullptr), right(nullptr) {}
+  Node(int val) {
+    data = val;
+    left = nullptr;
+    right = nullptr;
+  }
 };
 
 class BinarySearchTree {

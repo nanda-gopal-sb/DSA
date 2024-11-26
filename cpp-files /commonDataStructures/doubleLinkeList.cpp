@@ -24,7 +24,7 @@ class DoublyLinkedList {
     newNode->next = head;
     head = newNode;
   }
-
+  Node* getHead() { return head; }
   void insertAtTail(int val) {
     Node* newNode = new Node(val);
     if (head == nullptr) {
@@ -104,6 +104,7 @@ class DoublyLinkedList {
     }
     delete temp;
   }
+  void updateHead(Node* ptr) { head = ptr; }
   void deleteRandomAfter(int key) {
     Node* temp = head;
     while (temp != nullptr && temp->data != key) {
@@ -151,71 +152,71 @@ class DoublyLinkedList {
   }
 };
 
-int main() {
-  DoublyLinkedList dll;
-  int choice, value, key;
+// int main() {
+//   DoublyLinkedList dll;
+//   int choice, value, key;
 
-  while (true) {
-    std::cout << "Menu:\n";
-    std::cout << "1. Insert at head\n";
-    std::cout << "2. Insert at tail\n";
-    std::cout << "3. Insert before a value\n";
-    std::cout << "4. Insert after a value\n";
-    std::cout << "5. Delete at start\n";
-    std::cout << "6. Delete at end\n";
-    std::cout << "7. Delete a node before a value\n";
-    std::cout << "8. Delete a node after a value\n";
-    std::cout << "9. Display list\n";
-    std::cout << "10. Exit\n";
-    std::cout << "Enter your choice: ";
-    std::cin >> choice;
+//   while (true) {
+//     std::cout << "Menu:\n";
+//     std::cout << "1. Insert at head\n";
+//     std::cout << "2. Insert at tail\n";
+//     std::cout << "3. Insert before a value\n";
+//     std::cout << "4. Insert after a value\n";
+//     std::cout << "5. Delete at start\n";
+//     std::cout << "6. Delete at end\n";
+//     std::cout << "7. Delete a node before a value\n";
+//     std::cout << "8. Delete a node after a value\n";
+//     std::cout << "9. Display list\n";
+//     std::cout << "10. Exit\n";
+//     std::cout << "Enter your choice: ";
+//     std::cin >> choice;
 
-    switch (choice) {
-      case 1:
-        std::cout << "Enter value to insert at head: ";
-        std::cin >> value;
-        dll.insertAtHead(value);
-        break;
-      case 2:
-        std::cout << "Enter value to insert at tail: ";
-        std::cin >> value;
-        dll.insertAtTail(value);
-        break;
-      case 3:
-        std::cout << "Enter the key and value to insert before: ";
-        std::cin >> key >> value;
-        dll.insertBefore(key, value);
-        break;
-      case 4:
-        std::cout << "Enter the key and value to insert after: ";
-        std::cin >> key >> value;
-        dll.insertAfter(key, value);
-        break;
-      case 5:
-        dll.deleteAtStart();
-        break;
-      case 6:
-        dll.deleteAtEnd();
-        break;
-      case 7:
-        std::cout << "Enter the key to delete the node before: ";
-        std::cin >> key;
-        dll.deleteRandomBefore(key);
-        break;
-      case 8:
-        std::cout << "Enter the key to delete the node after: ";
-        std::cin >> key;
-        dll.deleteRandomAfter(key);
-        break;
-      case 9:
-        dll.display();
-        break;
-      case 10:
-        return 0;
-      default:
-        std::cout << "Invalid choice. Please try again.\n";
-    }
-  }
+//     switch (choice) {
+//       case 1:
+//         std::cout << "Enter value to insert at head: ";
+//         std::cin >> value;
+//         dll.insertAtHead(value);
+//         break;
+//       case 2:
+//         std::cout << "Enter value to insert at tail: ";
+//         std::cin >> value;
+//         dll.insertAtTail(value);
+//         break;
+//       case 3:
+//         std::cout << "Enter the key and value to insert before: ";
+//         std::cin >> key >> value;
+//         dll.insertBefore(key, value);
+//         break;
+//       case 4:
+//         std::cout << "Enter the key and value to insert after: ";
+//         std::cin >> key >> value;
+//         dll.insertAfter(key, value);
+//         break;
+//       case 5:
+//         dll.deleteAtStart();
+//         break;
+//       case 6:
+//         dll.deleteAtEnd();
+//         break;
+//       case 7:
+//         std::cout << "Enter the key to delete the node before: ";
+//         std::cin >> key;
+//         dll.deleteRandomBefore(key);
+//         break;
+//       case 8:
+//         std::cout << "Enter the key to delete the node after: ";
+//         std::cin >> key;
+//         dll.deleteRandomAfter(key);
+//         break;
+//       case 9:
+//         dll.display();
+//         break;
+//       case 10:
+//         return 0;
+//       default:
+//         std::cout << "Invalid choice. Please try again.\n";
+//     }
+//   }
 
-  return 0;
-}
+//   return 0;
+// }
