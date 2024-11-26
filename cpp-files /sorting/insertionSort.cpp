@@ -19,12 +19,12 @@ void printArray(int arr[], int n) {
   cout << endl;
 }
 
-int main() {
-  int arr[] = {12, 11, 13, 5, 6};
-  int n = sizeof(arr) / sizeof(arr[0]);
+// int main() {
+//   int arr[] = {12, 11, 13, 5, 6};
+//   int n = sizeof(arr) / sizeof(arr[0]);
 
-  insertionSort(arr, n);
-  printArray(arr, n);
-  cout << "LAMP";
-  return 0;
-}
+//   insertionSort(arr, n);
+//   printArray(arr, n);
+//   cout << "LAMP";
+//   return 0;
+// }
