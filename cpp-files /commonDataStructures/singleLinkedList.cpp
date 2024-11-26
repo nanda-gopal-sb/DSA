@@ -21,7 +21,7 @@ class SingleLinkedList {
     newNode->next = head;
     head = newNode;
   }
-
+  Node* getHead() { return head; }
   void insertAtEnd(int value) {
     Node* newNode = new Node(value);
 
@@ -172,75 +172,3 @@ class SingleLinkedList {
     }
   }
 };
-
-int main() {
-  SingleLinkedList list;
-  int choice, value, searchValue;
-
-  do {
-    std::cout << "\n1. Insert at start\n"
-              << "2. Insert at end\n"
-              << "3. Insert after value\n"
-              << "4. Insert before value\n"
-              << "5. Delete from start\n"
-              << "6. Delete from end\n"
-              << "7. Delete after value\n"
-              << "8. Delete before value\n"
-              << "9. Display list\n"
-              << "0. Exit\n"
-              << "Enter your choice: ";
-    std::cin >> choice;
-
-    switch (choice) {
-      case 1:
-        std::cout << "Enter value to insert: ";
-        std::cin >> value;
-        list.insertAtStart(value);
-        break;
-      case 2:
-        std::cout << "Enter value to insert: ";
-        std::cin >> value;
-        list.insertAtEnd(value);
-        break;
-      case 3:
-        std::cout << "Enter search value: ";
-        std::cin >> searchValue;
-        std::cout << "Enter new value: ";
-        std::cin >> value;
-        list.insertAfter(searchValue, value);
-        break;
-      case 4:
-        std::cout << "Enter search value: ";
-        std::cin >> searchValue;
-        std::cout << "Enter new value: ";
-        std::cin >> value;
-        list.insertBefore(searchValue, value);
-        break;
-      case 5:
-        list.deleteFromStart();
-        break;
-      case 6:
-        list.deleteFromEnd();
-        break;
-      case 7:
-        std::cout << "Enter value to delete after: ";
-        std::cin >> value;
-        list.deleteAfter(value);
-        break;
-      case 8:
-        std::cout << "Enter value to delete before: ";
-        std::cin >> value;
-        list.deleteBefore(value);
-        break;
-      case 9:
-        list.display();
-        break;
-      case 0:
-        std::cout << "Exiting...\n";
-        break;
-      default:
-        std::cout << "Invalid choice!\n";
-    }
-  } while (choice != 0);
-  return 0;
-}
