@@ -24,7 +24,7 @@ int binarySearch(int arr[], int size, int target) {
 int main() {
   int arr[] = {0};
   int n;
-  cout << "Enter the number of elements in the array: ";
+  std::cout << "Enter the number of elements in the array: ";
   cin >> n;
   int arr[n];
   cout << "Enter the elements of the array in sorted order: ";
@@ -39,6 +39,5 @@ int main() {
     cout << "Element is present at index " << result << endl;
   else
     cout << "Element is not present in array" << endl;
-
   return 0;
 }
