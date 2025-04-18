@@ -85,7 +85,6 @@ int main() {
     std::cout << "2. Inorder Traversal\n";
     std::cout << "3. Preorder Traversal\n";
     std::cout << "4. Postorder Traversal\n";
-    std::cout << "5. Exit\n";
     std::cout << "Enter your choice: ";
     std::cin >> choice;
 
